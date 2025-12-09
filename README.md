@@ -11,11 +11,7 @@ A mini Rust lab that implements a **baby version of Ligero's three tests** — p
 
 We work over a small prime field $F_p$ (currently `p = 97`) and a tiny Reed–Solomon (RS) code, then:
 
-- Encode the circuit
-  $$
-  z = x · y + x
-  $$
-  as `m` independent **multiplication gates** over $F_p$.
+- Encode the circuit $z = x · y + x$ as `m` independent **multiplication gates** over $F_p$.
 - Arrange the wires into a **tableau** `U` whose rows are RS codewords:
   - for each gate $i$, we have rows $(x_i, y_i, t_i, z_i)$ with
     - $t_i = x_i · y_i$,
@@ -44,9 +40,7 @@ This reproduces, in toy form, the **soundness amplification** story that appears
 - Code: a Reed–Solomon code defined by a domain
   ${\alpha*0, …, \alpha*{n-1}} \subset F_p$, here `α_j = j`.
 - Codewords: vectors of the form
-  $$
-  (f(\alpha_0), …, f(\alpha_{n-1})) \in F_p^n,
-  $$
+  $$(f(\alpha_0), …, f(\alpha_{n-1})) \in F_p^n,$$
   for polynomials `f(X)` with `deg(f) < d`.
 
 The RS machinery in `rs_code.rs` provides:
