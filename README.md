@@ -269,7 +269,13 @@ What it does capture from the whiteboard:
   - `V_ℓ` – linear constraints.
   - Soundness amplification via **fresh randomness** `r` across multiple rounds.
 
-Things it does **not** include (yet): - Full **MPC-in-the-head** construction and how `U` arises from views of a secure computation. - Packed secret sharing schemes beyond the simplest `m`-gate layout. - The exact `A w = b` linear system and `\u005chat r = (1, r, r², …) A` construction. - Efficient low-degree / proximity tests with slack (we require exact RS codewords). - Zero-knowledge, commitments, or any pre-processing / public parameters.
+Things it does **not** include (yet):
+
+- Full **MPC-in-the-head** construction and how `U` arises from views of a secure computation.
+- Packed secret sharing schemes beyond the simplest `m`-gate layout.
+- The exact `A w = b` linear system and `r_hat = (1, r, r², …) A` construction.
+- Efficient low-degree / proximity tests with slack (we require exact RS codewords).
+- Zero-knowledge, commitments, or any pre-processing / public parameters.
 
 Think of this as an **explainer lab**: enough to make the whiteboard's `U` + tests feel concrete, without committing to a full protocol.
 
