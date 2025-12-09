@@ -249,7 +249,9 @@ Properties:
 
 So for each column `j`:
 
-[\\V_m[j] = (-\\delta)r^0 + (+\\delta)r^1 = \\delta (r - 1), \\] which is zero **iff** `r = 1`:
+$$V_m[j] = (-\\delta)r^0 + (+\\delta)r^1 = \\delta (r - 1),$$
+
+which is zero **iff** `r = 1`:
 
 - Cheater passes one multiplication test with probability exactly `1/p` over random `r`.
 - Repeating the protocol `k` times with fresh `r` multiplies probabilities: `≈ (1/p)^k`. This is the core phenomenon we observe in the Monte-Carlo experiment.
