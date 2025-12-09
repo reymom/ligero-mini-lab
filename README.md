@@ -9,21 +9,21 @@ A mini Rust lab that implements a **baby version of Ligero's three tests** — p
 
 ## 1. What this lab does
 
-We work over a small prime field \\(F_p\\) (currently `p = 97`) and a tiny Reed–Solomon (RS) code, then:
+We work over a small prime field $F_p$ (currently `p = 97`) and a tiny Reed–Solomon (RS) code, then:
 
 - Encode the circuit
-  \\[
+  $$
   z = x · y + x
-  \\]
-  as `m` independent **multiplication gates** over \\(F_p\\).
+  $$
+  as `m` independent **multiplication gates** over $F_p$.
 - Arrange the wires into a **tableau** `U` whose rows are RS codewords:
-  - for each gate \\(i\\), we have rows \\(x_i, y_i, t_i, z_i\\) with
-    - \\(t_i = x_i · y_i\\),
-    - \\(z*i\\) \_meant* to satisfy \\(z_i = t_i + x_i\\).
+  - for each gate $i$, we have rows $(x_i, y_i, t_i, z_i)$ with
+    - $t_i = x_i · y_i$,
+    - $z*i$ _meant_ to satisfy $(z_i = t_i + x_i)$.
 - Implement three Ligero-style tests on the rows of `U`:
-  1. **Proximity test** \\(V_p\\): checks “rows look like RS codewords”.
-  2. **Multiplication test** \\(V_m\\): checks all \\(t_i = x_i · y_i\\).
-  3. **Linear test** \\(V\_\\ell\\): checks all \\(z_i = t_i + x_i\\).
+  1. **Proximity test** $V_p$: checks “rows look like RS codewords”.
+  2. **Multiplication test** $V_m$: checks all $t_i = x_i · y_i$.
+  3. **Linear test** $V\_\\ell$: checks all $z_i = t_i + x_i$.
 - Craft an explicit **cheating strategy** that:
   - keeps all rows in the RS code (passes proximity),
   - preserves linear constraints (passes linear),
@@ -40,13 +40,13 @@ This reproduces, in toy form, the **soundness amplification** story that appears
 
 ### 2.1 Field and code
 
-- Field: a tiny prime field \\(F_p\\) with `p = 97` for easy debugging.
+- Field: a tiny prime field $F_p$ with `p = 97` for easy debugging.
 - Code: a Reed–Solomon code defined by a domain
-  \\(\\{\\alpha*0, …, \\alpha*{n-1}\\}\\subset F_p\\), here `α_j = j`.
+  ${\alpha*0, …, \alpha*{n-1}} \subset F_p$, here `α_j = j`.
 - Codewords: vectors of the form
-  \\[
-  (f(\\alpha_0), …, f(\\alpha_{n-1})) \\in F_p^n,
-  \\]
+  $$
+  (f(\alpha_0), …, f(\alpha_{n-1})) \in F_p^n,
+  $$
   for polynomials `f(X)` with `deg(f) < d`.
 
 The RS machinery in `rs_code.rs` provides:
